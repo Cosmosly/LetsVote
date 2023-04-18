@@ -1,0 +1,77 @@
+/*
+slector:
+1. "," h1,h2{color:red}
+2. " " .container-fluid h1{color:red}
+3. "" .container-fluid#head-container{background-color:red}
+
+*/
+/* layout & background & general setting  */
+body{font-family:'Montserrat', sans-serif; text-align: center;}
+.container-fluid{padding: 0% 10% 3% 5%; background-color: #8ba0cb; text-align: left;}
+.navbar {padding: 0; margin-bottom: 7%;}
+#title{
+    background-color: #8ba0cb;
+    color: #fff;
+
+}
+#features{
+    background-color: #E3DFFD;
+    position: relative;
+    z-index: 1;
+}
+#testimonials{
+    background-color: #E5D1FA;
+}
+#press{
+    background-color: #E5D1FA; padding-bottom: 3%; 
+}
+#pricing{
+    background-color: #FFF4D2;
+}
+.download-button{margin: 5% 3% 5% 0%;}
+.title-image{
+    width: 80%;
+    transform: rotate(20deg);    
+    position: relative;
+    top: 20%;
+    left: 10%;
+}
+#cta{background-color:#E5D1FA;  padding: 5% 5% 0% 5%;}
+#footer{background-color: #FFF4D2;  padding: 5%;}
+
+/*font*/
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat', sans-serif ;}
+h3{font-weight: bold;}
+.big-heading{font-size: 3.5rem;  line-height: 1.5;  font-weight: 900;}
+.testimonial-text{font-size: 2.5rem;  line-height: 1.5;  font-weight: 700;}
+.cta-h3{font-family: 'Montserrat', sans-serif;  font-size: 3rem;  line-height: 1.5;  font-weight: 700;}
+.navbar-brand{font-family: 'Ubuntu', sans-serif; font-size: 2.5rem; font-weight: 400;}
+
+/*icon*/
+.fa-eye:hover, .fa-key:hover, .fa-lock:hover{color:#31b890;}
+/* feature section */
+.feature-icon{padding-bottom: 10%;}
+#features{padding: 7% 10%;}
+.feature-box{padding: 3%;}
+/* testimonials section & press */
+.testimonial-image{border-radius: 100%; width: 12%; margin: 3%;}
+.press-image{width: 12%; margin: 0 3%;}
+.carousel-item{padding: 7% 10%;}
+/* pricing */
+#pricing{ padding: 3%;}
+.pricing-btn{width: 80%;}
+.pricing-column{margin-top: 3% 2%;}
+/* footer */
+.footer-icon{margin: 1% 1% 1% 1%; color: black;}
+.footer-icon:hover{color: #31b890;}
+/* responsive */
+@media (max-width:1000px){
+    .title-image{
+        transform: rotate(0);
+        top: 0;
+        left:0;
+    }
+    .container-fluid{text-align: center;}
+}
+
+
