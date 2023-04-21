@@ -1,0 +1,21 @@
+<%- include('partials/header2') %>
+<h2><%= compose_title %></h2>
+<p><%= compose_text %></p>
+<div class="box">
+    <% newListItems.forEach((e) =>{ %>
+        <form action="/deleteVoteOption" method="post">
+            <div class="item">
+            <input type="checkbox" name="checkbox" value="<%= e.id %>"" onchange="this.form.submit()">
+            <p><%= e.name %></p>
+            <input type="hidden" name="entryPoint" value="<%= compose_entryPoint %>">
+            </div>
+        </form>
+    <%}); %>
+      
+      
+      <form class="item" action="/addVoteOption" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="entryPoint" value="<%= compose_entryPoint %>">+</button>
+      </form>
+  </div>
+<%- include('partials/footer2') %>
