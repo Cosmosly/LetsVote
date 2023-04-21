@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // database
 mongoose.set('strictQuery', false)
-const connectDB = async()=>{
+const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI);
         console.log(`MongoDB Connected: ${conn.connection.host} `);
@@ -26,7 +26,12 @@ const connectDB = async()=>{
         process.exit(1)
     }
 }
-connectDB()
+connectDB().then(() => {
+    // route
+    app.listen(PORT, () => {
+        console.log(`Listening on port ${PORT}`)
+    })
+})
 const itemsSchema = new mongoose.Schema({ name: String })
 const postSchema = new mongoose.Schema({
     title: String,
@@ -37,10 +42,7 @@ const postSchema = new mongoose.Schema({
 const Item = mongoose.model("Item", itemsSchema)
 const Post = mongoose.model('Post', postSchema)
 
-// route
-app.listen(port, () => {
-    console.log('server is running on port: ' + port)
-})
+
 // get
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html")
@@ -128,8 +130,8 @@ app.post("/deleteVoteOption", async (req, res) => {
     let selectedCheckbox = req.body.checkbox
     console.log(selectedCheckbox)
     let selectedEntryPoint = req.body.entryPoint
-    await Post.findOneAndUpdate({entryPoint : selectedEntryPoint}, {$pull : {items : {_id : selectedCheckbox}}}).exec()
-    .then(() => {res.redirect('/compose/'+selectedEntryPoint)})
-    .catch(err => console.log(err))
+    await Post.findOneAndUpdate({ entryPoint: selectedEntryPoint }, { $pull: { items: { _id: selectedCheckbox } } }).exec()
+        .then(() => { res.redirect('/compose/' + selectedEntryPoint) })
+        .catch(err => console.log(err))
 
 })
